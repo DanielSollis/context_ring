@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package="Go/src/context_ring/context_ring";
+
+package ring;
+
+service Worker {
+    rpc PassToNext (WorkMessage) returns (WorkMessage) {}
+}
+
+message WorkMessage {
+    int64 currentPort = 1;
+    string trace = 2;
+}
